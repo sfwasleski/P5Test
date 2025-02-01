@@ -38,6 +38,8 @@ class RobotContainer:
 
         self._joystick.a().whileTrue(self._coral_canon.intake_command())
         self._joystick.b().whileTrue(self._coral_canon.shoot_command())
+        self._joystick.y().whileTrue(self._coral_canon.backup_command())
+        self._joystick.x().whileTrue(self._coral_canon.shoot_L1_command())
 
     def getAutonomousCommand(self) -> commands2.Command:
         """Use this to pass the autonomous command to the main {@link Robot} class.

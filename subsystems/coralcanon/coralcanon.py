@@ -1,5 +1,5 @@
 from commands2 import Command, Subsystem
-from phoenix5 import FeedbackDevice, NeutralMode, TalonSRX, TalonSRXControlMode
+from phoenix5 import NeutralMode, TalonSRX, TalonSRXControlMode
 
 from constants import Constants
 from subsystems.coralcanon.coralcanonconstants import CoralCanonConstants
@@ -9,11 +9,9 @@ class CoralCanon(Subsystem):
     def __init__(self) -> None:
         self.left = TalonSRX(Constants.CanIds.CORAL_CANNON_LEFT_MOTOR)
         self._configure_motor(self.left)
-        # self.left.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative)
 
         self.right = TalonSRX(Constants.CanIds.CORAL_CANNON_RIGHT_MOTOR)
         self._configure_motor(self.right)
-        # self.right.follow(self.left)
         self.right.setInverted(True)
 
     def _configure_motor(self, motor: TalonSRX):
